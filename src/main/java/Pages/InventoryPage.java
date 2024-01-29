@@ -1,8 +1,8 @@
 package Pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import static com.codeborne.selenide.Selenide.$;
 
 public class InventoryPage {
-    public final SelenideElement InvetoryList = Selenide.$x("//*[@class='inventory_container']");
+    public final SelenideElement InvetoryList = $("#inventory_container");
 }
