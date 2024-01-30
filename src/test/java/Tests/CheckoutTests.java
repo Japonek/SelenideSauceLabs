@@ -1,18 +1,19 @@
 package Tests;
 
+import Pages.CartPage;
 import Pages.InventoryPage;
 import Pages.LoginPage;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-public class InventoryTests {
+public class CheckoutTests {
     private final LoginPage loginPage = Selenide.page(LoginPage.class);
     private final InventoryPage inventoryPage = Selenide.page(InventoryPage.class);
+    private final CartPage cartPage = Selenide.page(CartPage.class);
 
     @Test
-    public void shouldbeAbleToAddItemToCart (){
+    public void checkOutDescriptionTest (){
 
         // Given
         loginPage.open()
@@ -20,9 +21,10 @@ public class InventoryTests {
 
         // When
         inventoryPage.addItemToCart("backpack");
+        inventoryPage.toCheckoutPage();
 
         // Then
-        assertEquals("1", inventoryPage.getItemsCount());
+        assertTrue(cartPage.GetDescription().contains("Backpack"));
     }
 
 }
