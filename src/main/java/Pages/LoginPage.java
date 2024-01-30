@@ -1,8 +1,6 @@
 package Pages;
 
 import static com.codeborne.selenide.Selenide.$;
-
-import Tests.User;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.Configuration;
