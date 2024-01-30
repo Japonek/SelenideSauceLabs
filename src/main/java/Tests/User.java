@@ -2,5 +2,6 @@ package Tests;
 
 public enum User {
     standard_user,
-    secret_sauce
+    secret_sauce,
+    locked_out_user
 }

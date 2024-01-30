@@ -4,8 +4,7 @@ import Pages.InventoryPage;
 import Pages.LoginPage;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginTest {
     private final LoginPage loginPage = Selenide.page(LoginPage.class);
@@ -21,6 +20,19 @@ public class LoginTest {
         loginPage.loginAs(User.standard_user.name(), User.secret_sauce.name());
 
         // Then
-        assertThat(inventoryPage.InvetoryList.isDisplayed());
+        assertTrue(inventoryPage.InvetoryList.isDisplayed());
+    }
+
+    @Test
+    public void loginTestLocked (){
+
+        // Given
+        loginPage.open();
+
+        // When
+        loginPage.loginAs(User.locked_out_user.name(), User.secret_sauce.name());
+
+        // Then
+        assertTrue(loginPage.errorMessage().contains("locked out"));
     }
 }
