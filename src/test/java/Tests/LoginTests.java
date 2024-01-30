@@ -6,7 +6,7 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LoginTest {
+public class LoginTests {
     private final LoginPage loginPage = Selenide.page(LoginPage.class);
     private final InventoryPage inventoryPage = Selenide.page(InventoryPage.class);
 
@@ -20,7 +20,7 @@ public class LoginTest {
         loginPage.loginAs(User.standard_user.name(), User.secret_sauce.name());
 
         // Then
-        assertTrue(inventoryPage.InvetoryList.isDisplayed());
+        assertTrue(inventoryPage.InventoryList.isDisplayed());
     }
 
     @Test
